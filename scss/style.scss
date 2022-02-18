@@ -7,10 +7,10 @@
 
 //layout
 @use "layout/wrapper";
-@use "layout/header";
+@use "layout/header" as l-header;
 @use "layout/main";
-@use "layout/sidebar";
-@use "layout/footer";
+@use "layout/sidebar" as l-sidebar;
+@use "layout/footer" as l-footer;
 
 //object
 /* Component--------------------- */
@@ -23,13 +23,13 @@
 @use "object/component/underline";
 @use "object/component/mapSource";
 /* Project------------------------ */
-@use "object/project/header";
+@use "object/project/header" as p-header;
 @use "object/project/TopHead";
-@use "object/project/service";
+@use "object/project/service" as p-service;
 @use "object/project/access";
-@use "object/project/sidebar";
-@use "object/project/footer";
+@use "object/project/sidebar" as p-sidebar;
+@use "object/project/footer" as p-footer;
 /* Utility----------------------- */
 @use "object/utility/text";
 @use "object/utility/margin";
-@use "object/utility/service";
+@use "object/utility/service" as u-service;

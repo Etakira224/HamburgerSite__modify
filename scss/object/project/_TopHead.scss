@@ -6,7 +6,7 @@
     */  
     height: v.rem(285);
     /* BackGround */
-    @include v.background-image("a-burger-surrounded-by-vegetables.jpg") {
+    @include v.background-image("mainvisual-pc.jpg") {
         /* 
         @mixin内で@contentを記述しているため、他のプロパティの追加が可能
         ここに記述したものは@contentの{}内に書かれていることになる。 
