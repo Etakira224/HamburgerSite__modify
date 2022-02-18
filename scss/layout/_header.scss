@@ -1,0 +1,7 @@
+@use "../foundation/variables" as v;
+
+.l-header {
+    @include v.breakpoint(pc) {
+        grid-area: header;
+    }
+}

@@ -1,0 +1,44 @@
+@use "../../foundation/variables" as v;
+
+.p-TopHead {
+    /* 
+    Size
+    */  
+    height: v.rem(285);
+    /* BackGround */
+    @include v.background-image("a-burger-surrounded-by-vegetables.jpg") {
+        /* 
+        @mixin内で@contentを記述しているため、他のプロパティの追加が可能
+        ここに記述したものは@contentの{}内に書かれていることになる。 
+        */
+        /* 
+        背景縮小
+        background-size: cover;  縦横比保持。覆うように。(大)
+        background-size: contain; 縦横比保持。収まるように。(小)
+        どちらかを値指定。他方をauto(元の比率を維持)とすることもできる。
+        */
+        background-size: cover;
+    }
+    @include v.breakpoint(pc) {
+        /* 文字を3倍に拡大したとしても収まるため固定値で */
+        height: 530px;
+    }
+    &__title {
+        /* Color */
+        color: v.$palette-white;
+        @include v.breakpoint(pc) {
+            font-size: v.rem(40);
+        }
+    }
+    /* 
+    左右の余白 (上下は中央寄せで対応かな)
+    →but,予想外に多くの文字が入る可能性やユーザーの文字拡大の可能性も踏まえて
+    上下左右に取っておこうか。
+    その意図なら固定値でいいはずなのでpxで指定　
+    */
+    padding: 25px;
+
+    /* 上下中央揃え */
+    display: flex;
+    align-items: center;
+}

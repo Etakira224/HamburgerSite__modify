@@ -1,0 +1,6 @@
+@use "../../foundation/variables" as v;
+
+.c-coverLayer {
+    /* Color アルファ値使う場合はprojectで再度指定のこと。*/
+    background-color: v.$palette-black;
+}

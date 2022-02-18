@@ -1,0 +1,75 @@
+@use "../../foundation/variables" as v;
+
+.p-service {
+    /* Heightはそれぞれで指定。(SPとTB以上で書き分けの必要がなくなる) */
+    /* TB時 横並び */
+    @include v.breakpoint(tb) {
+        /* 
+        配置
+        flexで要素を横並び。さらにjustify-contentで横軸中央寄せ
+        左右の余白はlayoutで対応済み
+        */
+        display: flex;
+        justify-content: center;
+    }
+    /* PC時 */
+    @include v.breakpoint(pc) {
+        justify-content: space-around;
+    }
+    &__content {
+        /* 
+        Size 
+        iPhone5/SEの高さ568pxよりやや小さめをmin-heightに指定。
+        */
+        min-height: 550px;
+        /* flexで並べる */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        /* 
+        space
+        */
+        padding: 11px;
+        @include v.breakpoint(tb) {
+            height: 85vh;
+        }
+        @include v.breakpoint(pc) {
+            width: 45%;
+            min-height: 1196px;
+            height: initial;
+            padding: 20px;
+        }
+        /* 
+        TakeOut,EatInの書き分け必要がある部分はutility(_u-service.scss)にて
+        */
+        &__title {
+            @include v.breakpoint(tb) {
+                font-size: v.rem(44);
+            }
+            @include v.breakpoint(pc) {
+                /* 十分に文字が大きい(これ以上大きくなると可読性低くなる)と考えて固定値指定 */
+                font-size: 80px;
+            }
+        } 
+        &__detail {
+            &__desc {
+                /* baseColor */
+                background-color: v.$palette-white;
+                /* opacity */
+                opacity: .8;
+                /* space 予期しない操作による崩れを防ぐためショートハンドは使わず記述 */
+                padding-top: 19px;
+                padding-left: 10px;
+                padding-bottom: 20px;
+                padding-right: 14px;
+                &__title {
+                    @include v.breakpoint(pc) {
+                        font-size: v.rem(24);
+                    }
+                }
+            }
+        }
+    }
+}
+
+

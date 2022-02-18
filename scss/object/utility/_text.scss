@@ -1,0 +1,56 @@
+/* 
+タイトル部以外のテキストについては基本的な点をfoundationでスタイリングし、
+utilityで上書きしていくことにする。
+テキストに関してはcomponentとprojectのカスケーディングを使うと冗長になると考えたため。
+
+For the text, I will style the basic points with foundation 
+and overwrite it with utility. 
+I thought it would be redundant to use component and project cascading.
+*/
+
+@use "../../foundation/variables" as v;
+
+.u-text {
+    /* 
+    多少面倒だけど、それぞれにスタイリングしていく
+    →背景画像変えるなどで文字見づらくなった時の対応が容易。
+    */
+    &--serviceDesc {
+        /* 末尾が--serviceDescのクラスは存在しないため、この領域には記述禁止 */
+        &--takeOut {
+            /* minHeight */
+            min-height: v.rem(72);
+            /* Size */
+            font-size: v.rem(16);
+            /* Color */
+            color: v.$palette-brownTumbleweed;
+        }
+        &--eatIn {
+            /* minHeight */
+            min-height: v.rem(72);
+            /* Size */
+            font-size: v.rem(16);
+            /* Color */
+            color: v.$palette-brownTumbleweed;
+        }
+    }
+    &--accessDesc {
+        /* Size */
+        font-size: v.rem(14);
+        /* Color */
+        color: v.$palette-white;
+    }
+    &--footerInfo {
+        /* Size */
+        font-size: v.rem(20);
+        /* Color */
+        color: v.$palette-white;
+    }
+    &--copyright {
+        /* Size */
+        font-size: v.rem(14);
+        /* Color */
+        color: v.$palette-white;
+    }
+}
+

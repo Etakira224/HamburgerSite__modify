@@ -1,0 +1,107 @@
+/* &__menuOpenerは.c-titleを使用している */
+@use "../../foundation/variables" as v;
+
+.p-header {
+    /* Size*/
+    width: 100%;
+    height: v.rem(217);
+    /*
+    Space 
+    tb時もあまり変わらず(=viewportで変動せず)
+    長い文章が入るとは考えにくい(?)のでpxで指定し固定。
+    */
+    padding: 14px 16px 40px;
+    /* baseColor */
+    background-color: v.$col-header;
+    @include v.breakpoint(pc) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+        padding: 0 31px 0 65px;
+    }
+    &__menuOpener {
+        /* letter */
+        font-size: v.rem(20);
+        /* color */
+        color: v.$col-header__menuOpener;
+        /* aboutText */
+        line-height: v.rem(26);
+        /* 選択できなくする cursorはpointerに*/
+        user-select: none;
+        cursor: pointer;
+        /* 
+        layout
+        block要素、幅をコンテンツサイズに、右寄せ。
+        width: fit-contentはIE対応していないため注意。
+        marginは基本的にutilityで制御しているが、今回はlayout的意味合いが強いためここで。
+        */
+        display: block;
+        width: fit-content;
+        margin-left: auto;
+        @include v.breakpoint(tb) {
+            font-size: v.rem(34);
+        }
+        @include v.breakpoint(pc) {
+            display: none;
+        }
+    }
+    &__title {
+        /* letter */
+        font-size: v.rem(40);
+        /* color */
+        color: v.$col-header__title;
+        /* aboutText */
+        line-height: v.rem(53);
+        /* layout(左右中央ぞろえ) */
+        display: flex;
+        justify-content: center;
+        @include v.breakpoint(pc) {
+            height: fit-content;
+            font-size: v.rem(64);
+        }
+    }
+    &__search {
+        /* layout(左右中央ぞろえ) */
+        display: flex;
+        justify-content: center;
+        position: relative;
+        @include v.breakpoint(pc) {
+            height: fit-content;
+        }
+        &__searchIcon {
+            @include v.breakpoint(pc) {
+                /* position */
+                position: absolute;
+                top: 35%;
+                left: 2%;
+            }
+            &::before {
+                position: absolute;
+                top: 35%;
+                margin-left: 1.0%;
+            }
+        }
+        &__searchBox {
+            /* 
+            Size 
+            */
+            width: v.rem(230);
+            height: v.rem(46);
+            /* 形状を決定するborderRadiusはコンポーネントで指定してある */
+            /* border 線もおそらく変える必要ないのでpxで */
+            border: solid 1px v.$col-border;
+            /* 入力開始位置 */
+            padding-left: v.rem(40);
+            @include v.breakpoint(tb) {
+                width: v.rem(396);
+                height: v.rem(46);
+            }
+        }
+        &__searchButton {
+            @include v.breakpoint(tb) {
+                width: v.rem(136);
+            }
+        }
+    }
+}

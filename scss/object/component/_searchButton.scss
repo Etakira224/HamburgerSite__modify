@@ -1,0 +1,23 @@
+@use "../../foundation/variables" as v;
+/* 
+根本的なデザインの変更以外はここで指定せず、projectで指定すること。
+*/
+.c-searchButton {
+    /* 
+    bassColor
+    (searchButtonは使い回す予定がないのでここでスタイリング) 
+    */
+    @include v.col-searchButton;
+    /* shape */
+    border-radius: 10px;
+    border: 1px solid v.$palette-doveGray;
+    /* size */
+    width: v.rem(78);
+    /* 改行禁止 */
+    white-space: nowrap;
+    /* text button内テキストはやや小さいためfsz指定必要*/
+    font-size: 1rem;
+    font-weight: bold;
+    color: v.$palette-doveGray;
+}
+

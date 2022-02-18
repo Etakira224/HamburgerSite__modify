@@ -1,0 +1,130 @@
+@use "../../foundation/variables" as v;
+
+/* 
+_nav以下については末尾で別途記載。ネストの深化を防ぐため。
+レスポンシブ対応してもあまりスタイルが変わらないからこそできることかな??
+*/
+.p-sidebar {
+    /*
+    position
+     __contentを__maskの上に重ねるために
+     position:relative;. (position多用は危険らしい…？)
+    */
+    position: relative;
+    /* 
+    Size(子はこれを100%指定で受け継ぐ)
+    基本的にl-sidebarで制御してるが、
+    高さはここ依存しているので消さないでね。
+    */
+    height: 100vh;
+    /* flex-endでcontentを右に。__maskの幅消えるので指定のこと */
+    display: flex;
+    justify-content: flex-end;
+    &__mask {
+        /* baseColor アルファ値使う(50%)ので、rgbaで再度指定 */
+        background-color: rgba(v.$col-sidebar__mask, .5);
+        /* Size 高さ指定 親に合わせる*/
+        height: 100%;   
+        /* 親にflexかけたら幅消えたので指定 */ 
+        width: 100%;   
+    }
+    &__content {
+        /* 
+        position
+        absoluteで浮かせる。
+        top:0;でrelative付きの親の左上へ。__maskと重なる。
+        */
+        position: absolute;
+        top: 0;
+        /* 
+        Size 
+        幅指定 percentageで(余白も%指定の必要が出てくる)
+        高さ指定 親に合わせる
+        */
+        width: percentage(328/375);
+        height: 100%;
+        /* baseColor */
+        background-color: v.$col-sidebar;
+        /* 
+        space 
+        相対値で指定すると文字大きくなると表示領域狭くなるということが生じるので、pxで。
+        傾けた要素は元の状態に座標があるので注意。
+        下も暫定で上と同じ値をつけておく 
+        */
+        padding: 50px 17px 25px 47px;
+        /* layout (navとcloseButtonをflexで配置) */
+        display: flex;
+        justify-content: space-between;
+        /* 
+        スクロールバー表示
+        */
+        overflow-y: scroll;
+        &__title {
+            display: none;
+            @include v.breakpoint(pc) {
+                display: block;
+                position: absolute;
+                font-size: v.rem(34);
+                /* font-weightはcomponentで指定済み */
+                color: v.$col-sidebar__content__title;
+            }
+        }
+        /* 
+        &__nav以下については視認性を高めるため下で別途スタイリング。
+        */
+
+        &__closeButton {
+            @include v.breakpoint(pc) {
+                display: none;
+            }
+        }
+        /* p-sidebar__content */
+        @include v.breakpoint(tb) {
+            width: percentage(367/834);
+        }
+        @include v.breakpoint(pc) {
+            width: 100%;
+            overflow-y: visible;
+            padding: 82px 47px 25px percentage(46/367);
+        }
+    }
+    /* p-sidebar */
+    @include v.breakpoint(pc) {
+        height: 100%;
+    }
+}
+
+/* 
+sidebarのcontent__nav以下のスタイリングはここで
+*/
+.p-sidebar__content__nav {
+    /* margin設定等によるはみ出しを防ぐ→直感的に余白付けられる(要学習) */
+    height: fit-content;
+    /* 上部余白 文字サイズにそろえる必要がないので固定値*/
+    padding-top: 162px;
+    &__classify {
+        /* aboutLetter */
+        font-size: v.rem(24);
+        font-weight: bold;
+        color: v.$palette-doveGray;
+    }
+    /* 以下クラス名ついてないので注意 */
+    ul {
+        /* space(基本的にはmarginで行っている) */
+        padding-bottom: v.rem(34);
+        li {
+            /* aboutLetters */
+            list-style: none;
+            a {
+                /* aboutLetter */
+                font-size: v.rem(20);
+                text-decoration: none;
+                color: v.$palette-doveGray;
+                &:hover {
+                    /* hover */
+                    opacity: .6;
+                }
+            }
+        }
+    }
+}

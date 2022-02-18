@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Isn't it necessary because I brought the file and read it? -->
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <script src="js\jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="l-wrapper">
+        <div class="gridContainer">
+            <header class="l-header">
+                <div class="p-header">
+                    <p class="c-title p-header__menuOpener js-btn">Menu</p>
+                    <p class="c-title p-header__title">Hamburger</p>
+                    <section class="p-header__search">
+                        <i class="fas fa-search fa-lg c-searchIcon p-header__search__searchIcon" style="color: gray;"></i>
+                        <input class="c-searchBox p-header__search__searchBox" type="text">
+                        <button class="c-searchButton p-header__search__searchButton">検索</button>
+                    </section>
+                </div>
+            </header>
+            <main class="l-main">
+                <div class="l-main__TopHead">
+                    <section class="p-main__TopHead">
+                        <h1 class="c-title p-main__TopHead__title">Menu:<span>チーズバーガー</span></h1>
+                    </section>
+                </div>
+                <div class="l-main__article">
+                    <article class="p-main__article">
+                        <h2 class="c-title p-main__article__title">小見出しが入ります</h2>
+                        <p class="p-main__article__desc">
+                            テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
+                            テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
+                            テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
+                            テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
+                            テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
+                        </p>
+                    </article>
+                </div>
+                <div class="l-main__cardContainer">
+                    <section class="p-main__cardContainer">
+                        <section class="p-main__cardContainer__card">
+                            <img class="c-img p-main__cardContainer__card__img" src="" alt="チーズバーガーの画像">
+                            <h3 class="c-title p-main__cardContainer__card__title">チーズバーガー</h3>
+                            <article class="p-main__cardContainer__card__article">
+                                <h3 class="c-title p-main__cardContainer__card__article__title">小見出しが入ります</h3>
+                                <p class="p-main__cardContainer__card__article__desc">
+                                    テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
+                                    テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
+                                </p>
+                            </article>
+                            <button class="c-button p-main__cardContainer__card__button">詳しく見る</button>
+                        </section>
+                        <section class="p-main__cardContainer__card">
+                            <img class="c-img p-main__cardContainer__card__img" src="" alt="チーズバーガーの画像">
+                            <h3 class="c-title p-main__cardContainer__card__title">チーズバーガー</h3>
+                            <article class="p-main__cardContainer__card__article">
+                                <h3 class="c-title p-main__cardContainer__card__article__title">小見出しが入ります</h3>
+                                <p class="p-main__cardContainer__card__article__desc">
+                                    テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
+                                    テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
+                                </p>
+                            </article>
+                            <button class="c-button p-main__cardContainer__card__button">詳しく見る</button>
+                        </section>
+                        <section class="p-main__cardContainer__card">
+                            <img class="c-img p-main__cardContainer__card__img" src="" alt="チーズバーガーの画像">
+                            <h3 class="c-title p-main__cardContainer__card__title">チーズバーガー</h3>
+                            <article class="p-main__cardContainer__card__article">
+                                <h3 class="c-title p-main__cardContainer__card__article__title">小見出しが入ります</h3>
+                                <p class="p-main__cardContainer__card__article__desc">
+                                    テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
+                                    テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
+                                </p>
+                            </article>
+                            <button class="c-button p-main__cardContainer__card__button">詳しく見る</button>
+                        </section>
+                    </section>
+                </div>
+                <div class="l-main__pageNav">
+                    <nav class="p-main__pageNav">
+                        <p class="p-main__pageNav__linearNav"><span>&lt;&lt;</span>前へ</p>
+                        <p class="p-main__pageNav__linearNav">次へ<span>&gt;&gt;</span></p>
+                        <p class="p-main__pageNav__current">page 1/10</p>
+                        <section class="p-main__pageNav__pagination">
+                            <p class="p-main__pageNav__pagination__linear">&lt;&lt;</p>
+                            <ul class="p-main__pageNav__pagination__pages">
+                                <li>
+                                    <a href="">1</a><a href="">2</a><a href="">3</a>
+                                    <a href="">4</a><a href="">5</a><a href="">6</a>
+                                    <a href="">7</a><a href="">8</a><a href="">9</a>
+                                </li>
+                            </ul>
+                            <p class="p-main__pageNav__pagination__linear">&gt;&gt;</p>
+                        </section>
+                    </nav>
+                </div>
+            </main>
+            <section class="l-sidebar js-menu">
+                <div class="p-sidebar">
+                    <div class="c-coverLayer p-sidebar__mask"></div>
+                    <section class="p-sidebar__content">
+                        <p class="c-title p-sidebar__content__title">Menu</p>
+                        <section class="p-sidebar__content__nav">
+                            <h4 class="c-title p-sidebar__content__nav__classify">バーガー</h4>
+                            <ul>
+                                <li>
+                                    <a href="#">ハンバーガー</a>
+                                </li>
+                                <li>
+                                    <a href="#">チーズバーガー</a>
+                                </li>
+                                <li>
+                                    <a href="#">テリヤキバーガー</a>
+                                </li>
+                                <li>
+                                    <a href="#">アボカドバーガー</a>
+                                </li>
+                                <li>
+                                    <a href="#">フィッシュバーガー</a>
+                                </li>
+                                <li>
+                                    <a href="#">ベーコンバーガー</a>
+                                </li>
+                                <li>
+                                    <a href="#">チキンバーガー</a>
+                                </li>
+                            </ul>
+                            <h4 class="c-title p-sidebar__content__nav__classify">サイド</h4>
+                            <ul>
+                                <li>
+                                    <a href="#">ポテト</a>
+                                </li>
+                                <li>
+                                    <a href="#">サラダ</a>
+                                </li>
+                                <li>
+                                    <a href="#">ナゲット</a>
+                                </li>
+                                <li>
+                                    <a href="#">コーン</a>
+                                </li>
+                            </ul>
+                            <h4 class="c-title p-sidebar__content__nav__classify">ドリンク</h4>
+                            <ul>
+                                <li>
+                                    <a href="#">コーラ</a>
+                                </li>
+                                <li>
+                                    <a href="#">ファンタ</a>
+                                </li>
+                                <li>
+                                    <a href="#">オレンジ</a>
+                                </li>
+                                <li>
+                                    <a href="#">アップル</a>
+                                </li>
+                                <li>
+                                    <a href="#">紅茶(Ice/Hot)</a>
+                                </li>
+                                <li>
+                                    <a href="#">コーヒー(Ice/Hot)</a>
+                                </li>
+                            </ul>
+                        </section>
+                        <!-- ここで何を作っているか可視化するためテキスト記載but fontSizeは0に -->
+                        <div class="c-closeButton p-sidebar__content__closeButton js-closeBtn">メニューを閉じる</div>
+                    </section>
+    
+                </div>
+    
+            </section>
+            <footer class="l-footer">
+                <div class="p-footer">
+                    <p class="u-text--footerInfo">ショップ情報｜ヒストリー</p>
+                    <p class="u-text--copyright">Copyright: RaiseTech</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="js\script.js"></script>
+</body>
+</html>

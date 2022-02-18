@@ -1,0 +1,39 @@
+@use "../foundation/variables" as v;
+
+.l-sidebar {
+    /* 
+    js-menu(sidebar)のサイズはここでまとめて行う
+    ここをlとpにわけるとjsでの操作が面倒になると考えたため。
+    */
+    /* 最初はoverflow-x: hidden;にして消しておく */
+    overflow-x: hidden;
+    /* 
+    layout 
+    浮かせて手前に固定。topを0に指定することでドキュメントの左上に
+    さらにp-access__dexcにz-indexを指定しているので
+    そのままだとdescのみ手前に表示されてしまう
+    そのためここでz-index(descより大きな値)を指定しておく 
+    */
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    /* アニメーション 元要素で指定 なぜか効かない */
+    transition: .5s;
+    /* 状態の始点 */
+    width: 0;
+    right: 0;
+    /* is-open時 */
+    &.is-open {
+        width: 100%;
+    }
+
+    /* PC時 */
+    @include v.breakpoint(pc) {
+        /* width:0;を消し、transitionも無効化する */
+        width: 100%;
+        transition: none;
+        grid-area: sidebar;
+        /* fixedを解除 */
+        position: initial;
+    }
+}

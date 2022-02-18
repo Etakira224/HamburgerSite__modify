@@ -1,0 +1,125 @@
+/* 
+変数の取り扱いなど、参考記事のリンクを貼っておくと良さそう。
+→万が一「これは何？」となったときに参照してもらえる。
+*/
+/* 
+@use 'foundation/variables' as v;で読むこと
+*/
+
+/* 
+Responsive
+*/
+$breakpoints: (
+    'tb': 'screen and (min-width: 600px)',
+    'pc': 'screen and (min-width: 1025px)',
+);
+
+@mixin breakpoint($breakpoint: tb) {
+    @media #{map-get($breakpoints, $breakpoint)}{
+        @content;
+    }
+}
+
+/* 
+Font
+_base.scssにて
+font-family: "M+ 1m", Roboto, Arial, Meiryo, sans-serif;
+が設定されている。
+これ以外のフォントや優先順位に従いたくないときに使用する変数を定義
+*/
+$subFont: Roboto, "M+ 1m", Arial, Meiryo, sans-serif;
+
+
+/* 
+Size 
+参考:https://zenn.dev/tak_dcxi/articles/26280e7607bcd2
+呼び出し時は
+.my-button {
+    font-size: v.rem(14);　←font-sizeを14px相当に
+}
+…のような形で呼べば、コンパイル後にrem変換してくれる
+*/
+@function rem($px) {
+    @return ($px / 16) * 1rem;
+}
+
+
+/* 
+About Colors
+https://qiita.com/1natsu172/items/ef6b0fcba6bbe380df1e
+透過度使うときは以下のように
+background-color: rgba(v.$palette-black, .5);
+*/
+/* 
+palette  
+新規追加・微調整はここで。
+今回はName that Color(https://chir.ag/projects/name-that-color/)で命名。
+*/
+$palette-doveGray: #707070;
+$palette-seashellPeach : #FFF7EF;
+$palette-wester : #DED8D3;
+$palette-romance : #FFFDFA;
+$palette-arrowtown : #9D8670;
+$palette-pampas : #F2EDE9;
+$palette-gallery : #EAEAEA;
+$palette-brownTumbleweed : #3C2A10;
+$palette-gray : #808080;
+$palette-white : #FFF;
+$palette-black : #000;
+/* 
+colors
+paletteで定義した色の呼び出し。
+変数名は「"$color" + "-(クラス名)" + "-(backgroundなど(今回backgroundは基本省略))"」を基本とするが、
+「ここの色だけ変えたい」(ex: 背景画像との色被りなど)に対応できるように
+色が同じだったとしても相互に関連の薄い複数個所をまとめて定義しないこと。
+*/
+/* header */
+$col-header: $palette-seashellPeach;
+$col-header__menuOpener: $palette-doveGray;
+$col-header__title: $palette-doveGray;
+$col-searchBox-background: $palette-white;
+/* searchButton(gradation)  https://www.webcreatorbox.com/tech/sass-colours#sass-colour5 */
+@mixin col-searchButton($angle: -90deg, $gradStart: #{$palette-pampas}, $gradEnd: #{$palette-wester}) {
+    background: linear-gradient($angle, $gradStart, $gradEnd) fixed;
+}
+$col-header__searchIcon: $palette-gray;
+/* main */
+$col-main: $palette-romance;
+/* sidebar */
+$col-sidebar: $palette-pampas;
+$col-sidebar__closeButton: $palette-doveGray;
+$col-sidebar__content__title: $palette-doveGray;
+$col-sidebar__mask: $palette-black;
+/* footer */
+$col-footer: $palette-arrowtown;
+/* commonBorder */
+$col-border: $palette-doveGray;
+
+
+/* 
+backgroundImage
+参考:https://web-guided.com/376/
+*/
+/* 
+タイポ防止。呼び出し時はファイル名.拡張子の記述でOKになる。
+pで当てるのでパス注意。 
+*/
+$imgPath: "../images/";
+/* @contentを使うことで、呼出時に他のbackgroundプロパティ追加できる。 */
+@mixin background-image($fileName) {
+    background-image: url($imgPath + $fileName);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    @content;
+}
+
+/* 後から追加 */
+/* underline   eatInの下を基準に。疑似要素afterで指定のこと*/
+/* 個別への対応に巻き込んではいけない。他の関係ないprojectへの影響。 */
+@mixin underLine {
+    content: "";
+    height: rem(4);
+    width: rem(33.89);
+    background-color: $palette-white;
+}

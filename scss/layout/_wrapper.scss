@@ -1,0 +1,31 @@
+@use "../foundation/variables" as v;
+
+
+/* gridContainer(SP,Tb時はsidebar以外を含む)もこの中で制御。 */
+/* 
+l-wrapperで全体の調整
+*/
+
+.l-wrapper {
+    /*
+    右にできた余白を消す
+    http://bashalog.c-brains.jp/15/06/26-170500.php
+    */
+    overflow: hidden;
+    @include v.breakpoint(pc) {
+        overflow: initial;
+    }
+}
+
+.gridContainer {
+    @include v.breakpoint(pc) {
+        display: grid;
+        grid-template-columns: percentage(1553/1920) percentage(367/1920);
+        grid-template-rows: v.rem(217) auto auto;
+        grid-template-areas: 
+          "header sidebar"
+          "main sidebar"
+          "footer footer";
+    }
+}
+/* PC時はDOM操作の後グリッドで配置 */

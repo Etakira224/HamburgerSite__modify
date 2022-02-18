@@ -1,0 +1,32 @@
+@use "../../foundation/variables" as v;
+
+/* 
+恐らく十分に見えやすい大きさだと思われるのでpxで指定。
+後で実験してみる。 
+*/
+.c-closeButton {
+    /* 疑似要素出現させる */
+    display: flex;
+    /* テキストを消す */
+    font-size: 0;
+    /* 三平方 */
+    width: 32px * 1.4142;
+    /* 高さ＝厚み */
+    height: 6px;
+    /* color */
+    background-color: v.$palette-doveGray;
+    /* angle */
+    transform: rotate(45deg);
+    /* cursor変化 */
+    cursor: pointer;
+    &::before {
+        content: "";
+        /* 同一の内容を指定し、角度だけ変えてあげる */
+        font-size: 0;
+        width: 32px * 1.4142;
+        height: 6px;
+        background-color: v.$palette-doveGray;
+        /* angle */
+        transform: rotate(90deg);
+    }
+}

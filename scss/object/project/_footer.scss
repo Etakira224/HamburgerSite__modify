@@ -1,0 +1,17 @@
+@use "../../foundation/variables" as v;
+
+.p-footer {
+    /* baseColor */
+    background-color: v.$col-footer;
+    /* 
+    Size 
+    widthは指定必要なしかな。
+    heightはとりあえずカンプそのままをremで指定しておく
+    */
+    height: v.rem(150);
+    /* layout 中央揃え*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

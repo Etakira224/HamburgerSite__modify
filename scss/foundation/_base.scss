@@ -1,0 +1,22 @@
+@use "variables.scss" as v;
+*{
+    /* 
+    aboutTexts  
+    Robotoのときは$subFontなどで別途指定(_variables.scss)
+    */
+    font-family: "M+ 1m", Roboto, Arial, Meiryo, sans-serif;
+    h1{
+        font-size: v.rem(36);
+    }
+    h2{
+        font-size: v.rem(41);
+    }
+    h3{
+        font-size: v.rem(22);
+    }
+    /* 
+    borderBoxにして制御しやすく
+    */
+    box-sizing: border-box;
+}
+

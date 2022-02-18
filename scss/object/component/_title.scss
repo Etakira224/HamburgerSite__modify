@@ -1,0 +1,13 @@
+/* p-header__menuOpenerも以下のテンプレートを使用している */
+@use "../../foundation/variables" as v;
+
+.c-title {
+    /* 
+    letter 
+    ここに詳細まで(font-size等)書くかは
+    まったく同じスタイルで使い回される頻度により判断
+    */
+    font-family: v.$subFont;
+    font-weight: bold;
+    /* 色は個別のプロジェクト内で指定 */
+}

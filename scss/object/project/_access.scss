@@ -1,0 +1,87 @@
+@use "../../foundation/variables" as v;
+
+.p-access {
+    /* 
+    aboutPosition
+    (relative指定で子要素をハンドリングしやすく)
+    */
+    position: relative;
+    /* 重ね順:下からmask,overlay,desc */
+
+    &__overlay {
+        /* 濃い黒 */
+        opacity: .29;
+        /* size 幅は親(p-access)に合わせ、高さはカンプに基づいて%指定 */
+        width: 100%;
+        height: percentage(415/691);
+        /* layout absoluteで重ねる */
+        position: absolute;
+        z-index: 100;
+        @include v.breakpoint(tb) {
+            height: 100%;
+        }
+        @include v.breakpoint(pc) {
+            width: percentage(950/1553);
+        }
+    }
+    &__mask {
+        /* 薄い黒(カンプは白指定だが、不透明度を反転(?)させて黒指定) */
+        opacity: .4;
+        /* size */
+        width: 100%;
+        height: 100%;
+        /* layout absoluteで重ねる */
+        position: absolute;
+        z-index: 10;
+    }
+    &__map {
+        /* 
+        divは初期値でwidth100%なので指定必要なし
+        but iframeタグで挿入したmapのソースを幅変更のこと
+        */
+        position: relative;
+        height: fit-content;
+        @include v.breakpoint(pc) {
+            /* 下の謎の余白を半ば強引に消した */
+            min-height: 646px;
+        }
+        &__source {
+            /* Size
+            ・親のmap(divタグ)のwidthに合わせる
+            */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        &__desc {
+            /* aboutPosition  (mapの上に重なる形に→z-indexで最前面に配置)*/
+            position: relative;
+            z-index: 1000;
+            /* space */
+            padding: 42px 40px 51px;
+            height: fit-content;
+            @include v.breakpoint(pc) {
+                width: percentage(950/1553);
+                /* paddingをremで指定すると文字が大きいほど余白大きいということになるので、暫定で固定値 */
+                padding: 83px 134px 40px 119px;
+            }
+            &__title {
+                /* letter */
+                font-size: v.rem(30);
+                /* color */
+                color: v.$palette-white;
+                /* 疑似要素を下に */
+                display: flex;
+                flex-direction: column;
+                /* underLine */
+                &::after {
+                    @include v.underLine;
+                    width: v.rem(75);
+                    height: v.rem(2);
+                }
+            }
+        }
+    }
+}
