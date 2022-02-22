@@ -37,6 +37,8 @@ I thought it would be redundant to use component and project cascading.
     &--accessDesc {
         /* Size */
         font-size: v.rem(14);
+        /* text */
+        line-height: v.rem(33);
         /* Color */
         color: v.$palette-white;
     }

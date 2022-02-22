@@ -18,7 +18,7 @@
                     @include v.underLine;
                     width: v.rem(36);
                     @include v.breakpoint(pc) {
-                        width: rem(63);
+                        width: v.rem(63);
                     }
                 }
             }
@@ -36,7 +36,7 @@
                     width: v.rem(36);
                 }
                 @include v.breakpoint(pc) {
-                    width: rem(63);
+                    width: v.rem(63);
                 }
             }
         }

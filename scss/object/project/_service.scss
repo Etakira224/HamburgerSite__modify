@@ -32,6 +32,8 @@
         padding: 11px;
         @include v.breakpoint(tb) {
             height: 85vh;
+            /* detail__descの中身が増えたときにどちらか一方が圧迫することを防ぐため、幅を指定 */
+            width: 50%;
         }
         @include v.breakpoint(pc) {
             width: 45%;

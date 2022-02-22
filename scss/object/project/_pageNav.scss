@@ -1,0 +1,22 @@
+@use "../../foundation/variables" as v;
+
+.p-main__pageNav {
+    &__linearNav {
+
+    }
+    &__current {
+
+    }
+    &__pagination {
+        &__linear {
+
+        }
+        &__pages {
+            li {
+                a {
+                    
+                }
+            }
+        }
+    }
+}
