@@ -2,7 +2,7 @@
 
 .l-sidebar {
     /* 
-    js-menu(sidebar)のサイズはここでまとめて行う
+    js-sidebar(sidebar)のサイズはここでまとめて行う
     ここをlとpにわけるとjsでの操作が面倒になると考えたため。
     */
     /* 最初はoverflow-x: hidden;にして消しておく */
@@ -17,12 +17,9 @@
     position: fixed;
     top: 0;
     z-index: 1000;
-    /* アニメーション 元要素で指定 なぜか効かない */
-    // transition: .5s;
-    /* 状態の始点 */
     width: 0;
     right: 0;
-    /* is-open時 */
+    /* transition必要なし */
     &.is-open {
         width: 100%;
     }

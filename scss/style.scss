@@ -18,10 +18,11 @@
 @use "object/component/coverLayer";
 @use "object/component/searchIcon";
 @use "object/component/searchBox";
-@use "object/component/searchButton";
+@use "object/component/button";
 @use "object/component/title";
 @use "object/component/underline";
 @use "object/component/mapSource";
+
 /* Project------------------------ */
 @use "object/project/header" as p-header;
 @use "object/project/TopHead";
@@ -29,6 +30,16 @@
 @use "object/project/access";
 @use "object/project/sidebar" as p-sidebar;
 @use "object/project/footer" as p-footer;
+
+@use "object/project/archiveArticle";
+@use "object/project/burgerContainer";
+@use "object/project/cardContainer";
+@use "object/project/citation";
+@use "object/project/codeEmbed";
+@use "object/project/emphasis";
+@use "object/project/pageNav";
+@use "object/project/table";
+
 /* Utility----------------------- */
 @use "object/utility/text";
 @use "object/utility/margin";

@@ -26,7 +26,10 @@ _nav以下については末尾で別途記載。ネストの深化を防ぐた�
         /* Size 高さ指定 親に合わせる*/
         height: 100%;   
         /* 親にflexかけたら幅消えたので指定 */ 
-        width: 100%;   
+        width: 0;   
+        &.is-open {
+            width: 100%;
+        }
     }
     &__content {
         /* 
@@ -41,7 +44,7 @@ _nav以下については末尾で別途記載。ネストの深化を防ぐた�
         幅指定 percentageで(余白も%指定の必要が出てくる)
         高さ指定 親に合わせる
         */
-        width: percentage(328/375);
+        width: 0;
         height: 100%;
         /* baseColor */
         background-color: v.$col-sidebar;
@@ -51,7 +54,11 @@ _nav以下については末尾で別途記載。ネストの深化を防ぐた�
         傾けた要素は元の状態に座標があるので注意。
         下も暫定で上と同じ値をつけておく 
         */
-        padding: 50px 17px 25px 47px;
+        // padding: 50px 17px 25px 47px;
+        padding-top: 50px;
+        padding-right: 0;
+        padding-bottom: 25px;
+        padding-left: 0;
         /* layout (navとcloseButtonをflexで配置) */
         display: flex;
         justify-content: space-between;
@@ -59,6 +66,11 @@ _nav以下については末尾で別途記載。ネストの深化を防ぐた�
         スクロールバー表示
         */
         overflow-y: scroll;
+        &.is-open {
+            width: percentage(328/375);
+            padding-right: 17px;
+            padding-left: 47px;
+        }
         &__title {
             display: none;
             @include v.breakpoint(pc) {
@@ -80,7 +92,11 @@ _nav以下については末尾で別途記載。ネストの深化を防ぐた�
         }
         /* p-sidebar__content */
         @include v.breakpoint(tb) {
-            width: percentage(367/834);
+            &.is-open {
+                width: percentage(367/834);
+                padding-right: 17px;
+                padding-left: 47px;
+            }
         }
         @include v.breakpoint(pc) {
             width: 100%;

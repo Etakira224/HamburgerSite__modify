@@ -2,36 +2,36 @@
 
 const body = document.querySelector('body')
 const btn = document.querySelector('.js-btn');
-const menu = document.querySelector('.js-menu');
+const sidebar = document.querySelector('.js-sidebar');
+const sideContent = document.querySelector('.js-sidebarContent');
+const sideMask = document.querySelector('.js-sidebarMask');
 const closeBtn = document.querySelector('.js-closeBtn');
 
 const openSidebar = () => {
-    menu.classList.add('is-open')
+    sidebar.classList.add('is-open')
+    sideContent.classList.add('is-open')
+    sideMask.classList.add('is-open')
+    body.style.overflowY = "hidden";
     console.log('OpenSidebar')
 };
 const closeSidebar = () => {
-    menu.classList.remove('is-open')
+    sidebar.classList.remove('is-open')
+    sideContent.classList.remove('is-open')
+    sideMask.classList.remove('is-open')
+    body.style.overflowY = "visible";
     console.log('CloseSidebar')
 };
 
-console.log(btn);
-console.log(menu);
-console.log(closeBtn);
-
 btn.addEventListener('click', () => {
-    menu.classList.add('is-open')
     // document.getElementById("Menu").style.transition('.5')
     console.log('OpenSidebar')
     openSidebar();
-    body.style.overflowY = "hidden";
 });
 
 closeBtn.addEventListener('click', () =>{
-    menu.classList.remove('is-open')
-    menu.style.transition('none')
+    // sidebar.style.transition('none')
     console.log('CloseSidebar')
     closeSidebar();
-    body.style.overflowY = "visible";
 });
 
 /* お試し */
@@ -39,9 +39,9 @@ closeBtn.addEventListener('click', () =>{
 
 // const handleMediaQuery = function(mql) {
 //     if (mql.matches) {
-//         $('js-menu').css('width', '100%');
+//         $('js-sidebar').css('width', '100%');
 //     } else {
-//         $('js-menu').css('transition', '0');
+//         $('js-sidebar').css('transition', '0');
 //     }
 // };
 
