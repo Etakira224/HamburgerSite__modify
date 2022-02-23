@@ -22,6 +22,8 @@ I thought it would be redundant to use component and project cascading.
             min-height: v.rem(72);
             /* Size */
             font-size: v.rem(16);
+            /* text */
+            line-height: v.rem(23);
             /* Color */
             color: v.$palette-brownTumbleweed;
         }
@@ -30,6 +32,8 @@ I thought it would be redundant to use component and project cascading.
             min-height: v.rem(72);
             /* Size */
             font-size: v.rem(16);
+            /* text */
+            line-height: v.rem(23);
             /* Color */
             color: v.$palette-brownTumbleweed;
         }
@@ -41,6 +45,10 @@ I thought it would be redundant to use component and project cascading.
         line-height: v.rem(33);
         /* Color */
         color: v.$palette-white;
+        /* PC */
+        @include v.breakpoint(pc) {
+            font-size: v.rem(16);
+        }
     }
     &--footerInfo {
         /* Size */

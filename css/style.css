@@ -263,15 +263,13 @@ l-wrapperで全体の調整
   position: fixed;
   top: 0;
   z-index: 1000;
-  width: 100%;
+  width: 0;
   right: 0;
-  /* 非表示 */
-  display: none;
   /* transition必要なし */
   /* PC時 */
 }
 .l-sidebar.is-open {
-  display: initial;
+  width: 100%;
 }
 @media screen and (min-width: 1025px) {
   .l-sidebar {
@@ -920,6 +918,8 @@ I thought it would be redundant to use component and project cascading.
   min-height: 4.5rem;
   /* Size */
   font-size: 1rem;
+  /* text */
+  line-height: 1.4375rem;
   /* Color */
   color: #3C2A10;
 }
@@ -928,6 +928,8 @@ I thought it would be redundant to use component and project cascading.
   min-height: 4.5rem;
   /* Size */
   font-size: 1rem;
+  /* text */
+  line-height: 1.4375rem;
   /* Color */
   color: #3C2A10;
 }
@@ -938,6 +940,12 @@ I thought it would be redundant to use component and project cascading.
   line-height: 2.0625rem;
   /* Color */
   color: #FFF;
+  /* PC */
+}
+@media screen and (min-width: 1025px) {
+  .u-text--accessDesc {
+    font-size: 1rem;
+  }
 }
 .u-text--footerInfo {
   /* Size */

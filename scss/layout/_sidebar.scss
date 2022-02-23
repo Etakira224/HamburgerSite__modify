@@ -17,13 +17,11 @@
     position: fixed;
     top: 0;
     z-index: 1000;
-    width: 100%;
+    width: 0;
     right: 0;
-    /* 非表示 */
-    display: none;
     /* transition必要なし */
     &.is-open {
-        display: initial;
+        width: 100%;
     }
 
     /* PC時 */

@@ -8,11 +8,25 @@ const sideMask = document.querySelector('.js-sidebarMask');
 const closeBtn = document.querySelector('.js-closeBtn');
 
 $(function() {
+    $(window).resize(function() {
+        console.log("resizeInvoked");
+        const windowWidth = window.innerWidth;
+        if(windowWidth >= 1025){
+            console.log("checkedResponsive");
+            $(".js-sidebarContent").css('transition', 'none');
+        } else {
+            console.log("checkedToTb");
+            $(".js-sidebarContent").css('transition', '.5s');
+        }
+    });
+});
+
+$(function() {
     $(".js-btn").on("click", function(){
         $.when(
             /* whenの中のコードはカンマでつなげないとエラーになる */
             $(".js-sidebar").addClass("is-open"),
-            ).done(function() {
+        ).done(function() {
             $(".js-sidebarContent").addClass("is-open");
             $(".js-sidebarMask").fadeIn();
             $("body").css('overflowY', 'hidden');
@@ -28,7 +42,7 @@ $(function() {
             $(".js-sidebarMask").fadeOut(),
         ).done(function() {
             $(".js-sidebar").removeClass("is-open");
-            $("body").css('overflowY', 'visible');
+            $("body").css('overflowY', 'scroll');
             return false;
         });
     });
