@@ -26,7 +26,9 @@ _nav以下については末尾で別途記載。ネストの深化を防ぐた�
         /* Size 高さ指定 親に合わせる*/
         height: 100%;   
         /* 親にflexかけたら幅消えたので指定 */ 
-        width: 0;   
+        width: 100%;
+        /* 初回発火時の挙動調整 */
+        display: none;
         &.is-open {
             width: 100%;
         }
@@ -66,6 +68,8 @@ _nav以下については末尾で別途記載。ネストの深化を防ぐた�
         スクロールバー表示
         */
         overflow-y: scroll;
+        /* transition */
+        transition: .5s;
         &.is-open {
             width: percentage(328/375);
             padding-right: 17px;

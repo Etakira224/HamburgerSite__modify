@@ -263,16 +263,19 @@ l-wrapperで全体の調整
   position: fixed;
   top: 0;
   z-index: 1000;
-  width: 0;
+  width: 100%;
   right: 0;
+  /* 非表示 */
+  display: none;
   /* transition必要なし */
   /* PC時 */
 }
 .l-sidebar.is-open {
-  width: 100%;
+  display: initial;
 }
 @media screen and (min-width: 1025px) {
   .l-sidebar {
+    display: initial;
     /* width:0;を消し、transitionも無効化する */
     width: 100%;
     grid-area: sidebar;
@@ -753,7 +756,9 @@ _nav以下については末尾で別途記載。ネストの深化を防ぐた�
   /* Size 高さ指定 親に合わせる*/
   height: 100%;
   /* 親にflexかけたら幅消えたので指定 */
-  width: 0;
+  width: 100%;
+  /* 初回発火時の挙動調整 */
+  display: none;
 }
 .p-sidebar__mask.is-open {
   width: 100%;
@@ -792,6 +797,8 @@ _nav以下については末尾で別途記載。ネストの深化を防ぐた�
   スクロールバー表示
   */
   overflow-y: scroll;
+  /* transition */
+  transition: 0.5s;
   /* 
   &__nav以下については視認性を高めるため下で別途スタイリング。
   */
